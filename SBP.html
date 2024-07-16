@@ -1,0 +1,329 @@
+
+ <!-- 
+ Contents Page
+ 1. Head 
+ 2. Background Music Controls - id="musicControls"
+ 3. Opening Introduction - id="introduction"
+ 4. New Game Questions Form - id="newGameQuestions"
+ 5. Summary of New Game Results - id="results"
+ 
+ X. commentary on what needs to be worked on next - id="upNext"
+ -->
+ 
+ <!-- To do: Have a single button that takes all the player input in id="newGameQuestions" and gives them a 
+ new page with the summary results-->
+ 
+ <!-- Copypaste Storage Bin for common text:  <div class="text-background"></div>-->
+ 
+
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Space Battle Project</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Skubs">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+<div id="controlBar">
+  <div id="musicControls">
+ 
+  <!-- This code sets the background music. It autoplays and loops a file I uploaded to Dropbox. -->
+  
+    <!-- Audio element for background music -->
+  <audio id="background-music" loop controls class="text-background">
+    <source src="https://dl.dropboxusercontent.com/scl/fi/wueapu7ah3bbpqdojjug7/tunetank.com_5918_star-force_by_victor      wayne.mp3?rlkey=44ec8v866hniispoadkxxi5sp&st=4lri8jov&dl=0" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- navigation buttons to each page -->
+
+<form style="display:inline-block; margin: 10px 10px 20px;" id="navIntroductionButtons">
+  <input class="nav-button" type="submit" value="Introduction">
+</form>
+
+<form style="display:inline-block; margin: 10px 10px 20px;" id="navCreateShipButtons">
+  <input class="nav-button" type="submit" value="Create Ship">
+</form>
+
+<form style="display:inline-block; margin: 10px 10px 20px;" id="navShipSummaryButtons">
+  <input class="nav-button" type="submit" value="Ship Summary">
+</form>
+
+<form style="display:inline-block; margin: 10px 10px 20px;" id="navAdventureScreenButtons">
+  <input class="nav-button" type="submit" value="Navigation">
+</form>
+
+<form style="display:inline-block; margin: 10px 10px 20px;" id="navBattleScreenButtons">
+  <input class="nav-button" type="submit" value="Battle Screen">
+</form>
+ 
+  <!-- Custom volume control slider -->
+  <div id="volume-control">
+  <label for="volume-slider"><div class="text-background">Music Volume:</div></label>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.2"> 
+  </div> <!-- end of id="colume control" -->
+  
+ </div> <!-- end of if="music controls" -->
+ </div>
+  <script>
+        // Custom volume control logic
+    const backgroundMusic = document.getElementById('background-music');
+    const volumeSlider = document.getElementById('volume-slider');
+
+    // Set default volume
+    backgroundMusic.volume = 0.2;
+
+    volumeSlider.addEventListener('input', function() {
+      backgroundMusic.volume = this.value;
+});
+
+  </script> 
+  
+<!-- This is the opening text when the game starts, giving a brief story -->
+
+ <div id="introduction">
+ 
+    <p>You are the commander of a <strong>United Earth Space Navy (UESN)</strong> cruiser.</p>
+    <br>
+    <img src="https://i.pinimg.com/originals/e7/ca/d6/e7cad6435cd3ff377c35b49fd5110de4.jpg" width="300" height="150" alt="Your Space Cruiser">
+    <p>While escorting a merchant convoy, you came under attack by unidentified organic lifeforms emerging from transpatial portals.</p>
+    <iframe width="100" height="100" src="https://www.youtube.com/embed/TJx0v-2N7nQ" frameborder="0" allowfullscreen></iframe>
+    <p style='text-align: justify; line-height: 2;'  >Although you and your crew fought valiantly, your UESN vessel ended up being drawn into one of the tears in spatial reality.<br>
+    You, your crew, and your ship now find yourselves alone in <em>unidentified space</em>.<br>
+    After attempting to contact command, you find your communications systems are out of range.<br>
+    Once brief repairs are completed, you consult with your officers and decide to navigate back to Earth Command in order to report events and receive new orders.<br></p>
+    <p>The fate of the merchant convoy is unknown.</p>
+    
+    <!-- This button hides the introduction text, and displays the player question form -->
+    <form id="IntroductionFinishButton">
+ <input type="submit" value="Choose Captain and Ship Type">
+    </form>
+    
+  </div> <!-- this is the end of div="introduction" -->
+  
+  <!-- This sections requests player input to build their character and ship. It's also HTML practice for using numerous types of input form-->
+  <div id="newGameQuestions" style="display: none;">
+  
+   <!-- Asks for player for their name -->
+   
+   <form action="location.html" method="POST">
+     <label for="playerName" class="blackground">What is your name?</label>
+     <br>
+     <input type="text" name="playerName" id="playerName">
+     <br> <br>
+  </form>
+  
+  <!-- Asks the player for the name of their ship-->
+  
+  <form action="location.html" method="POST">
+     <label for="playerShipName" class="blackground">What is the name of your ship?</label>
+     <br>
+     <input type="text" name="playerShipName" id="playerShipName">
+  </form>
+  
+  <br>
+  
+ <!-- Asks the player to choose what type of crew they want with multiple answer checkboxes-->
+ 
+ <form action="location.html" method="POST">
+   <p class="blackground" width=600 > Choose the species which make up your crew: </p>
+    <input type="checkbox" id="elves" name="species" value="elves">
+    <label for="elves" class="blackground">Elves</label><br>
+    
+    <input type="checkbox" id="dwarves" name="species" value="dwarves">
+    <label for="dwarves" class="blackground">Dwarves</label><br>
+    
+    <input type="checkbox" id="humans" name="species" value="humans">
+    <label for="humans" class="blackground">Humans</label><br>
+    
+    <input type="checkbox" id="demi-humans" name="species" value="demi-humans">
+    <label for="demi-humans" class="blackground">Demi-Humans</label><br>
+    
+    <input type="checkbox" id="SAI" name="species" value="SAI">
+    <label for="SAI" class="blackground">SAI (Sentient Artificial Intelligence)</label><br>
+    
+    <input type="checkbox" id="chlorophyllians" name="species" value="chlorophyllians">
+    <label for="chlorophyllians" class="blackground">Chlorophyllians</label><br>
+ </form>
+ 
+ <br>
+ 
+ <!-- Ask the user to choose a goal / victory type-->
+ 
+ <form action="location.html" method="POST">
+   <p class="blackground"> What is your quest? </p>
+     <!-- Duty and Honour -->
+     <input type="radio" id="honourGoal" name="goal" value="honourGoal">
+     <label for="honourGoal" class="blackground"> Duty and Honour; To protect the weak, and bring justice. </label>
+   <br>
+     <!-- Gold and Fortune -->
+     <input type="radio" id="goldGoal" name="goal" value="goldGoal">
+     <label for="goldGoal" class="blackground"> Gold and Fortune; Wealth, by any means necessary, at any cost! </label>
+   <br>
+   <!-- Fame and Glory-->
+     <input type="radio" id="gloryGoal" name="goal" value="gloryGoal">
+     <label for="gloryGoal" class="blackground"> Fame and Glory; To be feared and respected for your battle prowess. </label>
+   <br>
+ </form>
+ 
+ <br> 
+ <!-- Ask the user to select the desired weapons for each deck
+      from a dropdown menu in order to build their ship-->
+ 
+ <form id="deckForm" name="deckForm" action="location.html" method="POST">
+    
+    <p> Your ship has four main decks. </p>
+    
+    <label for="deck1SystemChoice" class="blackground">Choose your deck 1 weapon system:</label>
+    <select id="deck1SystemChoice" name="deck1SystemChoice">
+      <option value="cannonBattery">Main Cannon Battery</option>
+      <option value="defenceCannons">PDC Defence Battery</option>
+      <option value="missileArray">Interceptor Missile Array</option>
+      <option value="torpedoArray">Torpedo Array</option>
+    </select>
+    <br>
+
+    <label for="deck2SystemChoice" class="blackground">Choose your deck 2 weapon system:</label>
+    <select id="deck2SystemChoice" name="deck2SystemChoice">
+      <option value="cannonBattery">Main Cannon Battery</option>
+      <option value="defenceCannons">PDC Defence Battery</option>
+      <option value="missileArray">Interceptor Missile Array</option>
+      <option value="torpedoArray">Torpedo Array</option>
+    </select>
+    <br>
+
+    <label for="deck3SystemChoice" class="blackground">Choose your deck 3 weapon system:</label>
+    <select id="deck3SystemChoice" name="deck3SystemChoice">
+      <option value="cannonBattery">Main Cannon Battery</option>
+      <option value="defenceCannons">PDC Defence Battery</option>
+      <option value="missileArray">Interceptor Missile Array</option>
+      <option value="torpedoArray">Torpedo Array</option>
+    </select>
+    <br>
+
+    <label for="deck4SystemChoice" class="blackground">Choose your deck 4 weapon system:</label>
+    <select id="deck4SystemChoice" name="deck4SystemChoice">
+      <option value="cannonBattery">Main Cannon Battery</option>
+      <option value="defenceCannons">PDC Defence Battery</option>
+      <option value="missileArray">Interceptor Missile Array</option>
+      <option value="torpedoArray">Torpedo Array</option>
+    </select>
+    <br>
+     <input type="submit" value="Submit"> 
+     <!-- Submitting hides this form and creates a table containg the results-->
+ </form>
+
+ <br> <br>
+
+<!-- number of catgirls. just testing code, not an actual game element. probably. -->
+
+<form action="location.html" method="POST">
+<label for="catgirls" class="blackground">How many catgirls does your ship have? Choose wisely. (Max: 5)</label>
+<input type="number" id="catgirls" name="catgirls" min="0" max="5" step="1" value="0">
+</form>
+
+ <br> <br>
+
+<!-- Difficulty Slider. Mostly just so I can practice the code.-->
+
+<p class="blackground"> Difficulty: </p>
+ <span> Easy Mode </span>
+ <input type="range" id="difficultyLevel" name="difficultySlider" min="1" max="10" step="1">
+ <span> Hard Mode</span>
+ <br> <br>
+ 
+ <!-- Once the player has chosen all their options, they can press submit to start game -->
+ <input type="submit" value="Submit">
+ 
+  </div> <!-- End of id="newGameQuestions" -->
+  
+  <!-- ---------------------------------------------------------------------------------- -->
+  
+  
+  <!-- After the user presses the sumbit button, the following results are shown--> 
+    <div id="results" style="display: none;">
+    <h2>Your Choices</h2>
+    <table border="1">
+      <tr>
+        <th>Deck</th>
+        <th>Weapon System</th>
+      </tr>
+      <tr>
+        <td>Deck 1</td>
+        <td id="resultDeck1"></td>
+      </tr>
+      <tr>
+        <td>Deck 2</td>
+        <td id="resultDeck2"></td>
+      </tr>
+      <tr>
+        <td>Deck 3</td>
+        <td id="resultDeck3"></td>
+      </tr>
+      <tr>
+        <td>Deck 4</td>
+        <td id="resultDeck4"></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- id="upNext"
+Up next:
+
+Javascript:
+Have the ships reduce each other's health.
+Have the ships damage each other's components.
+Have the components get damaged and break at certain health percentages.
+Change names to 'damaged cannons' or 'destroyed cannons' (if, else)
+divide the damage by half at 50% health, do no damage at 0%. Report this. (if && cannons, else / if && damaged cannons, else / if && destroyed cannons, log cannot fire)
+Have the Ships explode at zero hull points.
+Put a delay after each shot.
+
+Have the ships iterate through their deck weapons?
+
+Add button to start each round of firing
+
+html: make readouts for the ship stats. stick them bottom left and right.
+make a commentary readout between them middle center.
+
+CSS: get ship pictures to the left and right. overlay deck areas. replace with damaged versions.
+
+Javscript:
+Let the player customise their ship.
+Setup a series of battles with shitty story.
+Randomise enemy ship creation.
+
+Then.
+
+Set up 'player command system'.
+
+Set up fleet combat, firing at random ships on each side.
+
+Set up Torpedo system, create a 'middle zone with HTML / CSS' and set up defence guns properly.
+
+Set up Hangers, Launch mecha, (shoot mecha > shoot torpedoes > shoot ships).
+
+Sort out graphics<a
+
+Create a stragetic grid map for players to move around. Random encounters. Shops.
+
+Become Rogue-like; player gets to end of map, increase difficulty and new map.<a
+
+Create simple JRPG top down characters, + simple maps for them to walk around (on ship, stations)
+Introduce characters. They can be recuited to be hero Mecha that launch, or can give unique commands to the player.
+
+Finally: Dialogue + Story, music, sound effects, develop assets as needed. Semi-rogue like story mode with plot battles. 
+
+-->

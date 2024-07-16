@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#controlBar {
+  background-color: darkgrey;
+  width: 100%;
+  z-index: 10;
+  height: 300;
+  margin: 0;
+  padding: 10px;
+  border: 5px solid white;
+  position: fixed;
+}
+
+#music-controls {
+    position: relative;
+      background-color: darkgrey;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 5px solid white;
+}
+
+#volume-control {
+  	position: absolute;
+    width: 200px;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    
+}
+
+body {
+  color: white; /* Set text color to white */
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  background-color: black; /* Set background color of text */
+  padding: 10px; /* Add some padding for better readability */
+  border: 5px solid white;
+}
+
+img {
+   background-color: black; /* Set background color of text */
+  padding: 10px; /* Add some padding for better readability */
+  border: 5px solid white;
+}
+
+iframe {
+    background-color: black; /* Set background color of text */
+  padding: 10px; /* Add some padding for better readability */
+  border: 5px solid white;
+}
+
+.text-background {
+  background-color: black; /* Set background color of text */
+  padding: 10px; /* Add some padding for better readability */
+  border: 5px solid white;
+}
+
+#introduction {
+  background-image: url(https://wallpapercave.com/wp/ksbwZBK.jpg); /* Replace 'background-image-url.jpg' with the URL of your image */
+  background-size: stretch; /* Cover the entire background */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  text-align: justify;
+  padding: 10px;
+  margin: 100px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 10px;
+}
+
+.blackground {
+   background-color: black;
+}
+
+span,
+label {
+    background-color: black;
+}
+
+.nav-button {
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+}
+
+#introduction p {
+  text-align: center;
+  background-color: black;
+  padding: 5px;
+  margin: 10px auto;
+  display: inline-block;
+  line-height: 1.4;
+}
+
+#newGameQuestions {
+  margin: 110px 10px 10px 10px;
+    background-image: url(https://wallpapercave.com/wp/ksbwZBK.jpg); /* Replace 'background-image-url.jpg' with the URL of your image */
+  background-size: stretch; /* Cover the entire background */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+}
